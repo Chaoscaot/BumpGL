@@ -9,7 +9,8 @@
     "Chaoscaot"
   ],
   "contact": {
-    "website": "chaoscaot.de"
+    "website": "https://www.chaoscaot.de",
+    "issues": "https://github.com/Chaoscaot/BumpGL/issues"
   },
   "license": "AGPL-3.0",
   "environment": "client",
