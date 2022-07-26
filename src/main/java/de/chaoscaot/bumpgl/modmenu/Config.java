@@ -7,7 +7,7 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 public class Config implements ConfigData {
 
     @ConfigEntry.Gui.RequiresRestart
-    public GLVersion openGlVersion = GLVersion.OPENGL_3_2;
+    public GLVersion openGlVersion = GLVersion.OPENGL_4_6;
 
     public enum GLVersion {
         OPENGL_2_0(2, 0),
