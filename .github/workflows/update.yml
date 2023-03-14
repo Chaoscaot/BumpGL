@@ -1,0 +1,29 @@
+name: Updater
+
+on:
+  workflow_dispatch:
+    inputs:
+       version:
+        description: 'Version to update to'
+        required: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Execute Gradle build
+        run: ./gradlew migrateMappings --mappings "${{ github.event.inputs.version }}"
+      - id: git_commit
+        uses: zwaldowski/git-commit-action@v1
+        with:
+          message: "Update mappings to ${{ github.event.inputs.version }}"
+          author_name: "Fabric Version Bot"
